@@ -10,14 +10,4 @@
   home.stateVersion = "24.05";
   programs.home-manager.enable = true;
  
-  home.persistence."/nix/persist/home/codman" = {
-    directories = [
-    "Documents"
-    "Downloads"
-    ];
-    files = [
- 
-    ];
-    allowOther = true;
-  };
 }

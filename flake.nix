@@ -17,9 +17,9 @@
       modules = [
         disko.nixosModules.disko
         impermanence.nixosModules.impermanence
-        ./disk-config.nix
-        ./persist.nix
-        ./configuration.nix
+        ./hosts/spg/disk-config.nix
+        ./hosts/spg/configuration.nix
+        ./hosts/common/persist.nix
 
         home-manager.nixosModules.home-manager
         {
@@ -28,8 +28,8 @@
           home-manager.users.codman = { ... }: {
             imports = {
               impermanence.homeManagerModules.impermanence
-              ./home/persist.nix
-              ./home.nix;
+              ./home/codman/persist.nix
+              ./home/codman/home.nix;
             };
           };
         }

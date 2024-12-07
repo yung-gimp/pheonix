@@ -51,7 +51,7 @@
           type = "luks";
           name = "homecrypt";
           settings.allowDiscards = true;
-          settings.keyFile = "/tmp/home.key";
+          passwordFile = "/tmp/home.key";
           content = {
             type = "btrfs";
             extraArgs = [ "-f" ];

@@ -1,5 +1,5 @@
-{
-  home.persistence."/nix/persist/home/codman" = {
+{ ... }: {
+  homeManagerModules.persistence."/nix/persist/home/codman" = {
     directories = [
     "Documents"
     "Downloads"

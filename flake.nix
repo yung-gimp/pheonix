@@ -11,29 +11,54 @@
   };
 
   outputs = { self, nixpkgs, disko, impermanence, home-manager, ... } @inputs: {
-    nixosConfigurations.spg = nixpkgs.lib.nixosSystem {
-      system = "x86_64-Linux";
-      specialArgs = {inherit inputs;};
-      modules = [
-        disko.nixosModules.disko
-        impermanence.nixosModules.impermanence
-        ./hosts/spg/disk-config.nix
-        ./hosts/spg/configuration.nix
-        ./hosts/common/persist.nix
-
-        home-manager.nixosModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.users.codman = { ... }: {
-            imports = {
-              impermanence.homeManagerModules.impermanence
-              ./home/codman/persist.nix
-              ./home/codman/home.nix;
+    nixosConfigurations = {
+      spg = nixpkgs.lib.nixosSystem {
+        system = "x86_64-Linux";
+        specialArgs = {inherit inputs;};
+        modules = [
+          disko.nixosModules.disko
+          impermanence.nixosModules.impermanence
+          #./hosts/spg/disk-config.nix
+          ./hosts/spg/configuration.nix
+          ./hosts/common/persist.nix
+          
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.codman = { ... }: {
+              imports = [
+                impermanence.homeManagerModules.impermanence
+                ./home/codman/persist.nix
+                ./home/codman/home.nix
+              ];
             };
-          };
-        }
-      ];
+          }
+        ];
+      };
+      vmtest = nixpkgs.lib.nixosSystem {
+        system = "x86_64-Linux";
+        specialArgs = { inherit inputs; };
+        modules = [
+          disko.nixosModules.disko
+          impermanence.nixosModules.impermanence
+          ./hosts/vmtest/disk-config.nix
+          ./hosts/vmtest/configuration.nix
+          ./hosts/common/persist.nix
+
+          home-manager.nixosModules.home-manager {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.codman = { ... }: {
+              imports = [
+                #impermanence.homeManagerModules.impermanence
+                #./home/codman/persist.nix
+                ./home/codman/home.nix
+              ];
+            };
+          }
+        ];
+      };
     };
   };
 }

@@ -26,6 +26,8 @@
     useXkbConfig = true; # use xkb.options in tty.
   };
  
+  services.qemuGuest.enable = true;
+  services.spice-vdagentd.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb.layout = "us";

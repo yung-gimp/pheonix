@@ -53,6 +53,7 @@
         name = "homecrypt";
         settings.allowDiscards = true;
         passwordFile = "/tmp/home.key";
+        initrdUnlock = false;  # don't unlock at boot
         content = {
           type = "btrfs";
           extraArgs = [ "-f" ];

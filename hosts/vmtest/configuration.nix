@@ -63,6 +63,13 @@
   ];
   environment.variables.EDITOR= "vim";
 
+  environment.etc.crypttab = {
+    mode = "0600";
+    text = ''
+      homecrypt /dev/disk/by-id/ata-QEMU_HARDDISK_QM00005 /nix/persist/root/home.key
+    '';
+  };
+
   programs.mtr.enable = true;
   programs.gnupg.agent = {
     enable = true;

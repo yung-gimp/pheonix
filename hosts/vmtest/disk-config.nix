@@ -1,8 +1,8 @@
 {
   disko.devices = {
     disk.nix = {
-      device = "/dev/disk/by-id/ata-QEMU_HARDDISK_QM00003";
       type = "disk";
+      device = "/dev/disk/by-id/ata-QEMU_HARDDISK_QM00003";
       content = {
         type = "gpt";
         partitions = {
@@ -27,6 +27,9 @@
               content = {
                 type = "btrfs";
                 extraArgs = [ "-f" ];
+                postMountHook = ''
+                  mkdir -p /mnt/disko-install-root/nix/persist/root && cp /tmp/home.key /mnt/disko-install-root/nix/persist/root/home.key
+                '';
                 subvolumes = {
                   "nix" = {
                     mountpoint = "/nix";
@@ -46,13 +49,13 @@
     };
 
     disk.home = {
-      device = "/dev/disk/by-id/ata-QEMU_HARDDISK_QM00005";
       type = "disk";
+      device = "/dev/disk/by-id/ata-QEMU_HARDDISK_QM00005";
       content = {
         type = "luks";
         name = "homecrypt";
         settings.allowDiscards = true;
-        passwordFile = "/tmp/home.key";
+        settings.keyFile = "/tmp/home.key";
         initrdUnlock = false;  # don't unlock at boot
         content = {
           type = "btrfs";

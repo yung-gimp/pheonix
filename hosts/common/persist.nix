@@ -6,7 +6,7 @@
       "/etc/nixos"
     ];
     files = [
-
+      "/root/home.key"
     ];
   };
 }

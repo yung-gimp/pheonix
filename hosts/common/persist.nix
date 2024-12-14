@@ -6,7 +6,7 @@
       "/etc/nixos"
     ];
     files = [
-      "/root/home.key"
+      { file = "/root/home.key"; parentDirectory.mode = "0600"; }
     ];
   };
 }

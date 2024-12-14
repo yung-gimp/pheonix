@@ -66,8 +66,14 @@
   environment.etc.crypttab = {
     mode = "0600";
     text = ''
-      homecrypt /dev/disk/by-id/ata-QEMU_HARDDISK_QM00005 /nix/persist/root/home.key
+      homecrypt /dev/disk/by-id/ata-QEMU_HARDDISK_QM00005 /root/home.key
     '';
+  };
+
+  fileSystems."/nix/persist/etc/nixos" = {
+    device = "viofs";
+    fsType = "virtiofs";
+    options = [ "nofail" ];
   };
 
   programs.mtr.enable = true;

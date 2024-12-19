@@ -1,6 +1,7 @@
+## mkmerge infinite recursion aaaaa
 { config, lib, pkgs, inputs, ... }:
 let
-  userNames = builtins.attrNames (pkgs.lib.attrsets.filterAttrs (user: user.isNormalUser) users.users);
+  userNames = builtins.attrNames (pkgs.lib.attrsets.filterAttrs (name: user: user.isNormalUser) config.users.users);
 in {
   imports = [ inputs.home-manager.nixosModules.home-manager ];
   home-manager.useGlobalPkgs = true;

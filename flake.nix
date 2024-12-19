@@ -42,21 +42,9 @@
         modules = [
           disko.nixosModules.disko
           impermanence.nixosModules.impermanence
-          ./hosts/vmtest/disk-config.nix
-          ./hosts/vmtest/configuration.nix
+          ./hosts/vmtest
           ./hosts/common/persist.nix
-
-          home-manager.nixosModules.home-manager {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.codman = { ... }: {
-              imports = [
-                #impermanence.homeManagerModules.impermanence
-                #./home/codman/persist.nix
-                ./home/codman/home.nix
-              ];
-            };
-          }
+          ./home
         ];
       };
     };

@@ -4,7 +4,7 @@
   inputs = {
 
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
-    nixpkgs-unstable.url = "github:nixpkgs/nixos-unstable"; };
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     
     disko = {
       url = "github:nix-community/disko/latest";
@@ -14,7 +14,8 @@
       url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs"; };
 
-    impermanence.url = "github:nix-community/impermanence";
+    impermanence.url = "github:nix-community/impermanence"; 
+  };
 
   outputs = { self, nixpkgs, disko, impermanence, home-manager, ... } @inputs: {
     nixosConfigurations = {

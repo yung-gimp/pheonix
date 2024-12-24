@@ -1,6 +1,6 @@
 {
-  imports = [
-    ./home.nix
-#    ./persist.nix
+ imports = [
+   ./home.nix
+#  ./persist.nix
   ];
 }

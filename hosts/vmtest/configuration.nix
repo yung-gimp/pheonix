@@ -48,6 +48,16 @@
     ];
   };
 
+  users.users.test = {
+    initialPassword = "password";
+    isNormalUser = true;
+    extraGroups = [ "wheel" ]; 
+    packages = with pkgs; [
+      firefox
+      tree
+    ];
+  };
+
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   environment.systemPackages = with pkgs; [
     neovim

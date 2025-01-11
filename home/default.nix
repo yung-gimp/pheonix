@@ -1,7 +1,7 @@
 { config, lib, pkgs, inputs, ... }:
 
 let
-  userNames = builtins.attrNames (pkgs.lib.attrsets.filterAttrs (name: user: user.isNormalUser) config.users.users); # Get all normal users from users.users
+  userNames = builtins.attrNames (pkgs.lib.attrsets.filterAttrs (name: user: user.isNormalUser) config.uc); # Get all normal users from users.users
 
 in {
   imports = [ inputs.home-manager.nixosModules.home-manager ];

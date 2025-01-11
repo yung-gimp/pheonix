@@ -38,15 +38,6 @@
   # services.libinput.enable = true;
 
   users.mutableUsers = false;
-  users.users.codman = {
-    initialPassword = "password";
-    isNormalUser = true;
-    extraGroups = [ "wheel" ]; 
-    packages = with pkgs; [
-      firefox
-      tree
-    ];
-  };
 
   users.users.test = {
     initialPassword = "password";

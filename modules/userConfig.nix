@@ -1,22 +1,20 @@
-{ config, options, pkgs, lib, ... }:
+{ lib, ... }:
 
- {
-  options = {
-    uc = lib.mkOption {
-      type = lib.types.attrs;
+{
+  options.uc.users = lib.mkOption {
+    type = lib.types.attrs {
+      uid = lib.mkOption {
+        type = lib.types.int;
+        default = "";
+      };
+      isAdmin = lib.mkOption {
+        type = lib.types.bool;
+        default = false;
+      };
+      groups = lib.mkOption {
+        type = lib.types.commas;
+        default  = "";
+      };
     };
   };
-
-  config.uc = {
-    codman = {
-      initialPassword = "password";
-      isNormalUser = true;
-      extraGroups = [ "wheel" ]; 
-      packages = with pkgs; [
-        firefox
-        tree
-      ];
-    };
-  };
-  config.users.users = config.uc;
 }

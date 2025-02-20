@@ -1,20 +1,14 @@
-{ lib, ... }:
+{ config, lib, ... }:
 
-{
-  options.uc.users = lib.mkOption {
-    type = lib.types.attrs {
-      uid = lib.mkOption {
-        type = lib.types.int;
-        default = "";
-      };
-      isAdmin = lib.mkOption {
-        type = lib.types.bool;
-        default = false;
-      };
-      groups = lib.mkOption {
-        type = lib.types.commas;
-        default  = "";
-      };
+let
+
+ucUsers = config.uc.users;
+
+userConfig = {
+     lib.mkif builtins.elem (ucUsers.${user}.type user) config.users.users.${user}.isNormalUser = true;
     };
-  };
+
+in {
+  config.users.users = builtins.map ( user: userConfig config.uc.users );
+
 }

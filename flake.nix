@@ -12,7 +12,7 @@
     ];
   };
 
-  outputs = inputs: import ./outputs inputs;
+  outputs = inputs: import ./outputs { inherit inputs; };
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";

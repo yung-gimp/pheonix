@@ -12,7 +12,15 @@
     ];
   };
 
-  outputs = inputs: import ./outputs { inherit inputs; };
+  outputs = inputs:
+    inputs.flake-parts.lib.mkFlake { inherit inputs; } {
+      flake = {
+        
+      };
+      systems = [
+        "x86_64_linux"
+      ];
+    };
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
@@ -23,6 +31,8 @@
 
     disko.url = "github:nix-community/disko/latest";
     disko.inputs.nixpkgs.follows = "nixpkgs";
+
+    flake-parts.url = "github:hercules-ci/flake-parts";
 
     impermanence.url = "github:nix-community/impermanence";
   };

@@ -12,7 +12,7 @@
     ];
   };
 
-  outputs = import ./outputs;
+  outputs = inputs: import ./outputs inputs;
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";

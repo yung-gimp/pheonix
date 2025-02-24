@@ -14,11 +14,13 @@
 
   outputs = inputs:
     inputs.flake-parts.lib.mkFlake { inherit inputs; } {
-      flake = {
-        
-      };
       systems = [
-        "x86_64_linux"
+        "x86_64-linux"
+      ];
+
+      imports = [
+        ./parts
+        ./hosts
       ];
     };
 

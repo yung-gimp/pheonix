@@ -1,7 +1,14 @@
-{ self, lib, ... }: {
+{ lib, inputs, ... }:
+{
 
-  config.nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+  imports = [
+    inputs.ff.nixosModules.freedpomFlake
+    inputs.disko.nixosModules.disko
+    ./disko.nix
+  ];
 
-  imports = [ ./disko.nix ];
+  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+
+  ff.system.systemd-boot.enable = true;
 
 }

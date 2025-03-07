@@ -13,8 +13,8 @@
   };
 
   outputs =
-    inputs:
-    inputs.flake-parts.lib.mkFlake { inherit inputs; } {
+    inputs@{ flake-parts, ... }:
+    flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [
         "x86_64-linux"
       ];
@@ -22,6 +22,7 @@
       imports = [
         inputs.fpFmt.flakeModule
         ./hosts
+        ./homes
       ];
     };
 
@@ -40,11 +41,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # ff = {
-    #   url = "github:freedpom/FreedpomFlake";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    #   inputs.home-manager.follows = "home-manager";
-    # };
+    ff = {
+      url = "github:freedpom/FreedpomFlake";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
 
     fpFmt = {
       url = "github:freedpom/FreedpomFormatter";

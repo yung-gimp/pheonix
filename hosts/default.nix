@@ -23,6 +23,7 @@ let
       };
       modules = [
         ./${hostname}
+        inputs.home-manager.nixosModules.home-manager
       ];
     };
 

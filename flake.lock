@@ -62,19 +62,18 @@
         "flake-parts": "flake-parts",
         "flake-root": "flake-root",
         "fpFmt": "fpFmt",
-        "home-manager": [
-          "home-manager"
-        ],
+        "home-manager": "home-manager",
+        "impermanence": "impermanence",
         "nixpkgs": [
           "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1741364496,
-        "narHash": "sha256-q2fFPKItOpOQWz7OCBQg+1LeqTcoRfdB267E45EJLgo=",
+        "lastModified": 1741366390,
+        "narHash": "sha256-BtBwKYsgWmBDthPWTzopoHX+goMEfE8GUhL/50m1toc=",
         "owner": "freedpom",
         "repo": "FreedpomFlake",
-        "rev": "278c0dc436971519b7bf23ee11162e3fc1410086",
+        "rev": "cc5767f98870415f0fff6089bdce2b7a77f14849",
         "type": "github"
       },
       "original": {
@@ -371,6 +370,27 @@
     "home-manager": {
       "inputs": {
         "nixpkgs": [
+          "ff",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1741345870,
+        "narHash": "sha256-KTpoO4oaucdFr3oJJBYpGK+aWVVrLvtiT17EQE7Cf4Y=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "04c915bcf1a1eac3519372ff3185beef053fba7c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "type": "github"
+      }
+    },
+    "home-manager_2": {
+      "inputs": {
+        "nixpkgs": [
           "nixpkgs"
         ]
       },
@@ -390,6 +410,21 @@
       }
     },
     "impermanence": {
+      "locked": {
+        "lastModified": 1737831083,
+        "narHash": "sha256-LJggUHbpyeDvNagTUrdhe/pRVp4pnS6wVKALS782gRI=",
+        "owner": "nix-community",
+        "repo": "impermanence",
+        "rev": "4b3e914cdf97a5b536a889e939fb2fd2b043a170",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "impermanence",
+        "type": "github"
+      }
+    },
+    "impermanence_2": {
       "locked": {
         "lastModified": 1737831083,
         "narHash": "sha256-LJggUHbpyeDvNagTUrdhe/pRVp4pnS6wVKALS782gRI=",
@@ -592,8 +627,8 @@
         "ff": "ff",
         "flake-parts": "flake-parts_3",
         "fpFmt": "fpFmt_2",
-        "home-manager": "home-manager",
-        "impermanence": "impermanence",
+        "home-manager": "home-manager_2",
+        "impermanence": "impermanence_2",
         "nixpkgs": "nixpkgs_7",
         "nixpkgs-unstable": "nixpkgs-unstable"
       }

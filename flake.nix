@@ -21,8 +21,7 @@
 
       imports = [
         inputs.fpFmt.flakeModule
-        # ./parts
-        # ./hosts
+        ./hosts
       ];
     };
 
@@ -41,11 +40,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    ff = {
-      url = "github:freedpom/FreedpomFlake";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "home-manager";
-    };
+    # ff = {
+    #   url = "github:freedpom/FreedpomFlake";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    #   inputs.home-manager.follows = "home-manager";
+    # };
 
     fpFmt = {
       url = "github:freedpom/FreedpomFormatter";

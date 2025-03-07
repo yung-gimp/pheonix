@@ -1,7 +1,32 @@
-{ inputs, lib, ... }: let
+{
+  self,
+  inputs,
+  lib,
+  ...
+}:
+let
 
-  hosts = builtins.attrNames (inputs.nixpkgs.lib.attrsets.filterAttrs (name: type: type == "directory") (builtins.readDir ./.));
+  hosts = builtins.attrNames (
+    inputs.nixpkgs.lib.attrsets.filterAttrs (_name: type: type == "directory") (builtins.readDir ./.)
+  );
 
-in {  ## Eventually a function returning flake
-imports = builtins.map (host: ./. + /host) hosts;
+  mkHost =
+    hostname:
+    self.inputs.nixpkgs.lib.nixosSystem {
+      specialArgs = {
+        inherit
+          inputs
+          hostname
+          lib
+          self
+          ;
+      };
+      modules = [
+        ./${hostname}
+      ];
+    };
+
+in
+{
+  flake.nixosConfigurations = lib.genAttrs hosts mkHost;
 }

@@ -23,7 +23,6 @@
               type = "luks";
               name = "nixcrypt";
               settings.allowDiscards = true;
-              passwordFile = "/tmp/root.key";
               content = {
                 type = "btrfs";
                 extraArgs = [ "-f" ];
@@ -58,8 +57,7 @@
         type = "luks";
         name = "homecrypt";
         settings.allowDiscards = true;
-        settings.keyFile = "/tmp/home.key";
-        initrdUnlock = false; # don't unlock at boot
+        # initrdUnlock = false; # don't unlock at boot
         content = {
           type = "btrfs";
           extraArgs = [ "-f" ];

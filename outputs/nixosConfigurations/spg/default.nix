@@ -9,6 +9,7 @@
   ff = {
     system = {
       systemd-boot.enable = true;
+      persistence.enable = true;
     };
     common.enable = true;
   };

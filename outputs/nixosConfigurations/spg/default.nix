@@ -1,4 +1,4 @@
-{ inputs, lib, ... }:
+{ inputs, lib, pkgs, ... }:
 {
 
   ff = {
@@ -10,6 +10,18 @@
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   system.stateVersion = "24.11";
+
+  users = {
+    mutableusers = false;
+    codman = {
+    initialPassword = "password";
+    isNormalUser = true;
+    extraGroups = [ "wheel" ]; 
+    packages = with pkgs; [
+      tree
+    ];
+    };
+  };
 
   imports = [
     inputs.ff.nixosModules.freedpomFlake

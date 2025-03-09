@@ -2,7 +2,7 @@
   disko.devices = {
     disk.nix = {
       type = "disk";
-      device = "/dev/disk/by-id/ata-QEMU_HARDDISK_QM00003";
+      device = "/dev/disk/by-id/nvme-KINGSTON_OM8PCP3512F-AI1_50026B768407BAF3";
       content = {
         type = "gpt";
         partitions = {
@@ -52,7 +52,7 @@
 
     disk.home = {
       type = "disk";
-      device = "/dev/disk/by-id/ata-QEMU_HARDDISK_QM00005";
+      device = "/dev/disk/by-id/ata-Samsung_SSD_860_EVO_1TB_S599NJ0N339115R";
       content = {
         type = "luks";
         name = "homecrypt";

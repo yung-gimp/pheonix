@@ -8,6 +8,7 @@
       "nvme"
       "usb_storage"
       "sd_mod"
+      "usbhid"
       "hid_generic"
     ];
     kernelModules = [ "kvm-intel" ];

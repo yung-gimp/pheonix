@@ -6,7 +6,7 @@
       content = {
         type = "gpt";
         partitions = {
-          boot = {
+          ESP = {
             size = "1G";
             type = "EF00";
             content = {
@@ -57,7 +57,7 @@
         type = "luks";
         name = "homecrypt";
         settings.allowDiscards = true;
-        initrdUnlock = false; # don't unlock at boot
+        # initrdUnlock = false; # don't unlock at boot
         content = {
           type = "btrfs";
           extraArgs = [ "-f" ];

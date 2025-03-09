@@ -33,6 +33,14 @@
 
   services.getty.autologinUser = "codman";
 
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  fileSystems."/etc/nixos" = {
+    device = "viofs";
+    fsType = "virtiofs";
+    options = [ "nofail" ];
+  };
+
   imports = [
     inputs.ff.nixosModules.freedpomFlake
     inputs.disko.nixosModules.disko

@@ -1,4 +1,9 @@
-{ inputs, lib, pkgs, ... }:
+{
+  inputs,
+  lib,
+  pkgs,
+  ...
+}:
 {
 
   ff = {
@@ -12,14 +17,16 @@
   system.stateVersion = "24.11";
 
   users = {
-    mutableusers = false;
-    codman = {
-    initialPassword = "password";
-    isNormalUser = true;
-    extraGroups = [ "wheel" ]; 
-    packages = with pkgs; [
-      tree
-    ];
+    mutableUsers = false;
+    users = {
+      codman = {
+        initialPassword = "password";
+        isNormalUser = true;
+        extraGroups = [ "wheel" ];
+        packages = with pkgs; [
+          tree
+        ];
+      };
     };
   };
 

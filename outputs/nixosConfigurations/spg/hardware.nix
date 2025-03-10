@@ -2,7 +2,7 @@
 {
   boot = {
     kernelPackages = pkgs.linuxPackages_zen;
-    initrd.includeDefaultModules = true;
+    # initrd.includeDefaultModules = true;
     initrd.availableKernelModules = [
       "xhci_pci"
       "ahci"
@@ -10,7 +10,7 @@
       "usb_storage"
       "sd_mod"
       "usbhid"
-      "hid_generic"
+      "i8042"
     ];
     kernelModules = [ "kvm-intel" ];
   };

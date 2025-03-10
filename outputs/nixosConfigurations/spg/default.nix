@@ -27,10 +27,13 @@
         extraGroups = [ "wheel" ];
         packages = with pkgs; [
           tree
+          git
         ];
       };
     };
   };
+
+  programs.neovim.enable = true;
 
   services.getty.autologinUser = "codman";
 

@@ -2,6 +2,7 @@
 {
   boot = {
     kernelPackages = pkgs.linuxPackages_zen;
+    initrd.includeDefaultModules = true;
     initrd.availableKernelModules = [
       "xhci_pci"
       "ahci"

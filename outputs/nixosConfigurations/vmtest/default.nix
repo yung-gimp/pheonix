@@ -11,8 +11,9 @@
 
   ff = {
     system = {
+      nix.enable = true;
       systemd-boot.enable = true;
-      persistence.enable = true;
+      persistence.enable = false;
     };
     common.enable = true;
   };
@@ -32,8 +33,6 @@
   };
 
   services.getty.autologinUser = "codman";
-
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   fileSystems."/etc/nixos" = {
     device = "viofs";

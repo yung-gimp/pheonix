@@ -11,6 +11,7 @@
 
   ff = {
     system = {
+      nix.enable = true;
       systemd-boot.enable = true;
       persistence.enable = true;
     };

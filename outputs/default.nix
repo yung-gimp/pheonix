@@ -26,6 +26,7 @@ let
       modules = [
         ./nixosConfigurations/${hostname}
         inputs.home-manager.nixosModules.home-manager
+        inputs.impermanence.nixosModules.impermanence
       ];
     };
 in

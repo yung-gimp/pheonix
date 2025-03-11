@@ -11,6 +11,7 @@ in
 {
   config = {
     systemd.services."getty@tty1" = {
+      enable = true;
       after = [
         "systemd-logind.service"
         "systemd-vconsole-setup.service"
@@ -27,6 +28,7 @@ in
       restartIfChanged = false;
     };
     systemd.services."getty@tty2" = {
+      enable = true;
       after = [
         "systemd-logind.service"
         "systemd-vconsole-setup.service"
@@ -48,6 +50,7 @@ in
       "kmscon@tty2.service"
     ];
 
+    
     systemd.services.systemd-vconsole-setup.enable = false;
     systemd.services.reload-systemd-vconsole-setup.enable = false;
   };

@@ -35,7 +35,8 @@
 
   programs.neovim.enable = true;
 
-  services.getty.autologinUser = "codman";
+  services.kmscon.enable = true;
+  services.kmscon.autologinUser = "codman";
 
   imports = [
     inputs.ff.nixosModules.freedpomFlake

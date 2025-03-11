@@ -35,13 +35,11 @@
 
   programs.neovim.enable = true;
 
-  services.kmscon.enable = true;
-  services.kmscon.autologinUser = "codman";
-
   imports = [
     inputs.ff.nixosModules.freedpomFlake
     inputs.disko.nixosModules.disko
     ./disko.nix
     ./hardware.nix
+    ./kmscon.nix
   ];
 }

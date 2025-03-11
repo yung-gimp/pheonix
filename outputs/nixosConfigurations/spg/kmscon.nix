@@ -10,7 +10,7 @@ let
 in
 {
   config = {
-    systemd.services.kmscon = {
+    systemd.services."kmscon@tty1" = {
       after = [
         "systemd-logind.service"
         "systemd-vconsole-setup.service"
@@ -25,10 +25,28 @@ in
       ];
 
       restartIfChanged = false;
-      aliases = [ "autovt@.service" ];
+    };
+    systemd.services."kmscon@tty2" = {
+      after = [
+        "systemd-logind.service"
+        "systemd-vconsole-setup.service"
+      ];
+      requires = [ "systemd-logind.service" ];
+
+      serviceConfig.ExecStart = [
+        ""
+        ''
+          ${pkgs.kmscon}/bin/kmscon "--vt=%I" --seats=seat0 --no-switchvt --configdir ${kmsConfDir} --login -- ${pkgs.shadow}/bin/login -p codman
+        ''
+      ];
+
+      restartIfChanged = false;
     };
 
-    systemd.suppressedSystemUnits = [ "autovt@.service" ];
+    systemd.suppressedSystemUnits = [
+      "kmscon@tty1.service"
+      "kmscon@tty2.service"
+    ];
 
     systemd.services.systemd-vconsole-setup.enable = false;
     systemd.services.reload-systemd-vconsole-setup.enable = false;

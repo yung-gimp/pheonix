@@ -10,7 +10,7 @@ let
 in
 {
   config = {
-    systemd.services."kmscon@tty1" = {
+    systemd.services."getty@tty1" = {
       after = [
         "systemd-logind.service"
         "systemd-vconsole-setup.service"
@@ -26,7 +26,7 @@ in
 
       restartIfChanged = false;
     };
-    systemd.services."kmscon@tty2" = {
+    systemd.services."getty@tty2" = {
       after = [
         "systemd-logind.service"
         "systemd-vconsole-setup.service"

@@ -37,6 +37,8 @@ in
     services.kmscon.enable = true;
     systemd.services."kmsconvt@tty2".enable = false;
     systemd.services."getty@tty2" = {
+      enable = true;
+      wantedBy = [ "default.target" ];
       serviceConfig.ExecStart = [
         "" # override upstream default with an empty ExecStart
         (gettyCmd "--noclear --keep-baud pts/tty2 115200,38400,9600 $TERM")

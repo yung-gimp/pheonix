@@ -35,6 +35,7 @@ in
   };
   config = {
     services.kmscon.enable = true;
+    systemd.services."kmsconvt@tty2".enable = false;
     systemd.services."getty@tty2" = {
       serviceConfig.ExecStart = [
         "" # override upstream default with an empty ExecStart

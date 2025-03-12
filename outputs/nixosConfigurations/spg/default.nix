@@ -40,6 +40,6 @@
     inputs.disko.nixosModules.disko
     ./disko.nix
     ./hardware.nix
-    ./kmscon.nix
+    ./getty.nix
   ];
 }

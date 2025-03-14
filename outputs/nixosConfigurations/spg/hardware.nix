@@ -1,7 +1,7 @@
-{ pkgs, ... }:
+{ pkgs-stable, ... }:
 {
   boot = {
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs-stable.linuxPackages_latest;
     initrd.availableKernelModules = [
       "xhci_pci"
       "ahci"
@@ -13,5 +13,5 @@
     ];
     kernelModules = [ "kvm-intel" ];
   };
-  hardware.enableAllFirmware = true;
+  hardware.enableRedistributableFirmware = true;
 }

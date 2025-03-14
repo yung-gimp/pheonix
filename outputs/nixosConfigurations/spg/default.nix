@@ -18,9 +18,9 @@
     common.enable = true;
   };
 
-  gm = {
-    programs.hyprland.enable = true;
-  };
+  # gm = {
+  #   programs.hyprland.enable = true;
+  # };
 
   users = {
     mutableUsers = false;
@@ -28,12 +28,26 @@
       codman = {
         initialPassword = "password";
         isNormalUser = true;
-        extraGroups = [ "wheel" ];
+        extraGroups = [
+          "wheel"
+          "networkmanager"
+        ];
         packages = with pkgs; [
           tree
           git
         ];
       };
+    };
+  };
+
+  environment = {
+    systemPackages = with pkgs; [
+      pciutils
+      usbutils
+    ];
+    variables = {
+      EDITOR = "nvim";
+      MANPAGER = "nvim +Man!";
     };
   };
 
@@ -46,7 +60,7 @@
     inputs.disko.nixosModules.disko
     ./disko.nix
     ./hardware.nix
-    ./hyprland.nix
+    # ./hyprland.nix
     # ./getty.nix
   ];
 }

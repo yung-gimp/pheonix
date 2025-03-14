@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   boot = {
-    kernelPackages = pkgs.linuxPackages_zen;
+    kernelPackages = pkgs.linuxPackages_latest;
     initrd.availableKernelModules = [
       "xhci_pci"
       "ahci"
@@ -13,4 +13,5 @@
     ];
     kernelModules = [ "kvm-intel" ];
   };
+  hardware.enableAllFirmware = true;
 }

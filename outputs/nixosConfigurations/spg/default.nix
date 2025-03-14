@@ -18,6 +18,10 @@
     common.enable = true;
   };
 
+  gm = {
+    programs.hyprland.enable = true;
+  };
+
   users = {
     mutableUsers = false;
     users = {
@@ -33,6 +37,8 @@
     };
   };
 
+  services.getty.autologinUser = "codman";
+
   programs.neovim.enable = true;
 
   imports = [
@@ -40,6 +46,7 @@
     inputs.disko.nixosModules.disko
     ./disko.nix
     ./hardware.nix
-    ./getty.nix
+    ./hyprland.nix
+    # ./getty.nix
   ];
 }

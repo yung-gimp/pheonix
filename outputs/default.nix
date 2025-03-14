@@ -31,5 +31,8 @@ let
     };
 in
 {
-  flake.nixosConfigurations = lib.genAttrs hosts mkHost;
+  flake = {
+    nixosConfigurations = lib.genAttrs hosts mkHost;
+    imports = [ ./homeManagerModules ];
+  };
 }

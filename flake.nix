@@ -56,5 +56,7 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
 
     impermanence.url = "github:nix-community/impermanence";
+
+    hyprland.url = "github:hyprwm/Hyprland";
   };
 }

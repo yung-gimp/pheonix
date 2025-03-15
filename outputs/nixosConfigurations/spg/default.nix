@@ -61,6 +61,6 @@
     ./disko.nix
     ./hardware.nix
     ./hyprland.nix
-    # ./getty.nix
+    ./getty.nix
   ];
 }

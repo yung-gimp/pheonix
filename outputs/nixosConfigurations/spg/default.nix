@@ -18,9 +18,9 @@
     common.enable = true;
   };
 
-  # gm = {
-  #   programs.hyprland.enable = true;
-  # };
+  gm = {
+    programs.hyprland.enable = true;
+  };
 
   users = {
     mutableUsers = false;
@@ -60,7 +60,7 @@
     inputs.disko.nixosModules.disko
     ./disko.nix
     ./hardware.nix
-    # ./hyprland.nix
+    ./hyprland.nix
     # ./getty.nix
   ];
 }

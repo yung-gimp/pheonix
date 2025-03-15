@@ -8,8 +8,6 @@ let
 
   cfg = config.ff.services.kmscon;
 
-  ttyId = cfg.disableAt;
-
   baseArgs =
     [
       "--login-program"
@@ -38,31 +36,36 @@ in
     };
 
     disableAt = lib.mkOption {
-      type = lib.types.nullOr lib.listOf lib.types.int;
+      type = lib.types.nullOr lib.types.str;
       default = null;
       description = "Numeric identifier of ttys that should not use the kms console";
       example = [
-        "2"
-        "3"
-        "4"
+        "tty2"
       ];
     };
 
   };
   config = lib.mkIf cfg.enable {
+
     services.kmscon.enable = true;
-    systemd = {
-      services."kmsconvt@tty${ttyId}".enable = false;
-      services."getty@tty${ttyId}" = {
-        enable = true;
-        wantedBy = [ "default.target" ];
-        serviceConfig.ExecStart = [
-          "" # override upstream default with an empty ExecStart
-          (gettyCmd "--noclear --keep-baud pts/tty2 115200,38400,9600 $TERM")
-        ];
-        environment.TTY = "tty${ttyId}";
-        restartIfChanged = false;
-      };
+
+    systemd = lib.mkIf (cfg.disableAt != null) {
+
+      services = builtins.map (ttyId: {
+
+        "kmsconvt@${ttyId}".enable = false;
+
+        "getty@${ttyId}" = {
+          enable = true;
+          wantedBy = [ "default.target" ];
+          serviceConfig.ExecStart = [
+            "" # override upstream default with an empty ExecStart
+            (gettyCmd "--noclear --keep-baud pts/${ttyId} 115200,38400,9600 $TERM")
+          ];
+          environment.TTY = "${ttyId}";
+          restartIfChanged = false;
+        };
+      }) cfg.disableAt;
     };
   };
 }

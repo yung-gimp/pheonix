@@ -15,6 +15,13 @@
       systemd-boot.enable = true;
       persistence.enable = true;
     };
+    services.kmscon = {
+      enable = true;
+      disableAt = [
+        "tty1"
+        "tty2"
+      ];
+    };
     common.enable = true;
   };
 

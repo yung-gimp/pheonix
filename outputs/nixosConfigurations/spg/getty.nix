@@ -36,7 +36,7 @@ in
     };
 
     disableAt = lib.mkOption {
-      type = lib.types.nullOr lib.types.str;
+      type = lib.types.nullOr (lib.types.listOf lib.types.str);
       default = null;
       description = "Numeric identifier of ttys that should not use the kms console";
       example = [
@@ -51,21 +51,23 @@ in
 
     systemd = lib.mkIf (cfg.disableAt != null) {
 
-      services = builtins.map (ttyId: {
+      services = lib.mkMerge (
+        builtins.map (ttyId: {
 
-        "kmsconvt@${ttyId}".enable = false;
+          "kmsconvt@${ttyId}".enable = false;
 
-        "getty@${ttyId}" = {
-          enable = true;
-          wantedBy = [ "default.target" ];
-          serviceConfig.ExecStart = [
-            "" # override upstream default with an empty ExecStart
-            (gettyCmd "--noclear --keep-baud pts/${ttyId} 115200,38400,9600 $TERM")
-          ];
-          environment.TTY = "${ttyId}";
-          restartIfChanged = false;
-        };
-      }) cfg.disableAt;
+          "getty@${ttyId}" = {
+            enable = true;
+            wantedBy = [ "default.target" ];
+            serviceConfig.ExecStart = [
+              "" # override upstream default with an empty ExecStart
+              (gettyCmd "--noclear --keep-baud pts/${ttyId} 115200,38400,9600 $TERM")
+            ];
+            environment.TTY = "${ttyId}";
+            restartIfChanged = false;
+          };
+        }) cfg.disableAt
+      );
     };
   };
 }

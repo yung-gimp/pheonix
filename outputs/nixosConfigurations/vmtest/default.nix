@@ -18,8 +18,7 @@
     services.kmscon = {
       enable = true;
       disableAt = [
-        "tty3"
-        "tty4"
+        "tty1"
       ];
     };
     common.enable = true;
@@ -50,6 +49,5 @@
     inputs.disko.nixosModules.disko
     ./disko.nix
     ./hardware.nix
-    ./getty.nix
   ];
 }

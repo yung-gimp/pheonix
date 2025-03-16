@@ -19,7 +19,6 @@
       enable = true;
       disableAt = [
         "tty1"
-        "tty2"
       ];
     };
     common.enable = true;
@@ -68,6 +67,5 @@
     ./disko.nix
     ./hardware.nix
     ./hyprland.nix
-    ./getty.nix
   ];
 }

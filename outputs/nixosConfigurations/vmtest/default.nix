@@ -15,6 +15,13 @@
       systemd-boot.enable = true;
       persistence.enable = false;
     };
+    services.kmscon = {
+      enable = true;
+      disableAt = [
+        "tty3"
+        "tty4"
+      ];
+    };
     common.enable = true;
   };
 
@@ -32,8 +39,6 @@
     };
   };
 
-  services.getty.autologinUser = "codman";
-
   fileSystems."/etc/nixos" = {
     device = "viofs";
     fsType = "virtiofs";
@@ -45,5 +50,6 @@
     inputs.disko.nixosModules.disko
     ./disko.nix
     ./hardware.nix
+    ./getty.nix
   ];
 }

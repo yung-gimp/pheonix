@@ -22,21 +22,27 @@
       ];
     };
     common.enable = true;
-  };
-
-  users = {
-    mutableUsers = false;
-    users = {
+    userConfig = {
       codman = {
-        initialPassword = "password";
-        isNormalUser = true;
+        uid = 1000;
         extraGroups = [ "wheel" ];
-        packages = with pkgs; [
-          tree
-        ];
       };
     };
   };
+
+  # users = {
+  #   mutableUsers = false;
+  #   users = {
+  #     codman = {
+  #       initialPassword = "password";
+  #       isNormalUser = true;
+  #       extraGroups = [ "wheel" ];
+  #       packages = with pkgs; [
+  #         tree
+  #       ];
+  #     };
+  #   };
+  # };
 
   fileSystems."/etc/nixos" = {
     device = "viofs";

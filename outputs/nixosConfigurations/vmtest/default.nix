@@ -1,7 +1,6 @@
 {
   inputs,
   lib,
-  pkgs,
   ...
 }:
 {
@@ -23,9 +22,11 @@
     };
     common.enable = true;
     userConfig = {
-      codman = {
-        uid = 1000;
-        extraGroups = [ "wheel" ];
+      users = {
+        codman = {
+          uid = 1000;
+          extraGroups = [ "wheel" ];
+        };
       };
     };
   };
@@ -55,5 +56,6 @@
     inputs.disko.nixosModules.disko
     ./disko.nix
     ./hardware.nix
+    ./userConfig.nix
   ];
 }

@@ -27,6 +27,7 @@
           uid = 1000;
           extraGroups = [ "wheel" ];
         };
+        testuser.uid = 1005;
       };
     };
   };
@@ -56,6 +57,6 @@
     inputs.disko.nixosModules.disko
     ./disko.nix
     ./hardware.nix
-    ./userConfig.nix
+    # ./userConfig.nix
   ];
 }

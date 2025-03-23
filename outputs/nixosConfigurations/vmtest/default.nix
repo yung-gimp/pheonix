@@ -25,9 +25,9 @@
       users = {
         codman = {
           uid = 1000;
-          userType = "admin";
+          role = "admin";
+          tags = [ "base" ];
         };
-        testuser.uid = 1005;
       };
     };
   };

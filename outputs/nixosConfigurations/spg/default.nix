@@ -22,26 +22,11 @@
       ];
     };
     common.enable = true;
-  };
-
-  gm = {
-    programs.hyprland.enable = true;
-  };
-
-  users = {
-    mutableUsers = false;
-    users = {
+    userConfig = {
       codman = {
-        initialPassword = "password";
-        isNormalUser = true;
-        extraGroups = [
-          "wheel"
-          "networkmanager"
-        ];
-        packages = with pkgs; [
-          tree
-          git
-        ];
+        uid = 1000;
+        role = "admin";
+        tags = [ "base" ];
       };
     };
   };
@@ -66,6 +51,5 @@
     inputs.disko.nixosModules.disko
     ./disko.nix
     ./hardware.nix
-    ./hyprland.nix
   ];
 }

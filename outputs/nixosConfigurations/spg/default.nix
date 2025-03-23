@@ -23,10 +23,12 @@
     };
     common.enable = true;
     userConfig = {
-      codman = {
-        uid = 1000;
-        role = "admin";
-        tags = [ "base" ];
+      users = {
+        codman = {
+          uid = 1000;
+          role = "admin";
+          tags = [ "base" ];
+        };
       };
     };
   };

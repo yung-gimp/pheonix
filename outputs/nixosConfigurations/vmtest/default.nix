@@ -25,26 +25,12 @@
       users = {
         codman = {
           uid = 1000;
-          extraGroups = [ "wheel" ];
+          userType = "admin";
         };
         testuser.uid = 1005;
       };
     };
   };
-
-  # users = {
-  #   mutableUsers = false;
-  #   users = {
-  #     codman = {
-  #       initialPassword = "password";
-  #       isNormalUser = true;
-  #       extraGroups = [ "wheel" ];
-  #       packages = with pkgs; [
-  #         tree
-  #       ];
-  #     };
-  #   };
-  # };
 
   fileSystems."/etc/nixos" = {
     device = "viofs";
@@ -57,6 +43,5 @@
     inputs.disko.nixosModules.disko
     ./disko.nix
     ./hardware.nix
-    # ./userConfig.nix
   ];
 }

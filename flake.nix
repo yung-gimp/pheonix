@@ -43,7 +43,7 @@
     };
 
     ff = {
-      url = "github:freedpom/FreedpomFlake/console-testing";
+      url = "github:freedpom/FreedpomFlake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

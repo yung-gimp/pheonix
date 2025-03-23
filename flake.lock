@@ -102,16 +102,15 @@
         ]
       },
       "locked": {
-        "lastModified": 1742704272,
-        "narHash": "sha256-I0+eCEQjTFnUWk8NVR3H6U8MmVFwy/aHA6uFYeuv7Es=",
+        "lastModified": 1742755397,
+        "narHash": "sha256-mSf53WVb7gCi6mq6xrbOawxpAok765PM4h05NZBcNvg=",
         "owner": "freedpom",
         "repo": "FreedpomFlake",
-        "rev": "5a73b3f2c7fd375ab05e782d6975595411161f5c",
+        "rev": "233354c73bf203ccb3d7145d0ec39dfd34a37a70",
         "type": "github"
       },
       "original": {
         "owner": "freedpom",
-        "ref": "console-testing",
         "repo": "FreedpomFlake",
         "type": "github"
       }
@@ -555,11 +554,11 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1742681162,
-        "narHash": "sha256-kkWvzXU/w48eKqvKVvcE7rWAOH+MeT1ErIgqB7h0Eas=",
+        "lastModified": 1742746774,
+        "narHash": "sha256-6BMwAfC604szlL8S7BJkH8a090p0505rFB+mAiApBoo=",
         "owner": "hyprwm",
         "repo": "Hyprland",
-        "rev": "fdb7ca6c8fa3611ab04eccf129a515efd9852c73",
+        "rev": "e4abf26069b4d43c8f6ad6b3dfb56c952abb38c2",
         "type": "github"
       },
       "original": {

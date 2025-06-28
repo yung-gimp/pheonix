@@ -7,9 +7,13 @@
 let
 
   hosts = builtins.attrNames (
-    inputs.nixpkgs.lib.attrsets.filterAttrs (_name: type: type == "directory") (
+    inputs.nixpkgs.lib.attrsets.filterAttrs (_n: t: t == "directory") (
       builtins.readDir ./nixosConfigurations
     )
+  );
+
+  homes = builtins.attrNames (
+    inputs.nixpkgs.lib.attrsets.filterAttrs (_n: t: t == "directory") (builtins.readDir ./homeModules)
   );
 
   mkHost =
@@ -34,10 +38,20 @@ let
         inputs.impermanence.nixosModules.impermanence
       ];
     };
+
+  mkHome = user: {
+    specialArgs = {
+      inherit user lib;
+    };
+    modules = [
+      ./homeModules/${user}
+    ];
+  };
+
 in
 {
   flake = {
     nixosConfigurations = lib.genAttrs hosts mkHost;
-    # imports = [ ./homeManagerModules ];
+    homeModules = lib.genAttrs homes mkHome;
   };
 }

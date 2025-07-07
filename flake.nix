@@ -44,7 +44,12 @@
     };
 
     ff = {
-      url = "github:freedpom/FreedpomFlake";
+      url = "github:freedpom/FreedpomFlake/uMod";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    cm = {
+      url = "github:yung-gimp/homeModule";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

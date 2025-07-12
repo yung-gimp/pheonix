@@ -12,17 +12,22 @@
     system = {
       nix.enable = true;
       systemd-boot.enable = true;
-      persistence.enable = false;
+      fontsu.enable = true;
+      persistence = {
+        enable = true;
+        ephHome = true;
+      };
     };
+
     services.kmscon = {
       enable = true;
       disableAt = [
         "tty1"
       ];
     };
+
     common.enable = true;
     userConfig = {
-      enableHM = true;
       users = {
         codman = {
           uid = 1000;
@@ -47,5 +52,4 @@
     ./disko.nix
     ./hardware.nix
   ];
-  hardware.graphics.enable = true;
 }

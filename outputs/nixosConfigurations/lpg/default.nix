@@ -1,19 +1,15 @@
-{
-  inputs,
-  lib,
-  pkgs,
-  ...
-}:
-{
+{ inputs, ... }:
 
-  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  system.stateVersion = "24.11";
-
+{
   ff = {
     system = {
       nix.enable = true;
       systemd-boot.enable = true;
-      persistence.enable = true;
+      persistence = {
+        enable = true;
+        ephHome = true;
+      };
+
     };
     services.kmscon = {
       enable = true;
@@ -28,25 +24,15 @@
           uid = 1000;
           role = "admin";
           tags = [ "base" ];
+          hashedPassword = "$6$i8pqqPIplhh3zxt1$bUH178Go8y5y6HeWKIlyjMUklE2x/8Vy9d3KiCD1WN61EtHlrpWrGJxphqu7kB6AERg6sphGLonDeJvS/WC730";
+          homeModule = inputs.cm.homeModules.codmod;
         };
       };
     };
   };
 
-  environment = {
-    systemPackages = with pkgs; [
-      pciutils
-      usbutils
-    ];
-    variables = {
-      EDITOR = "nvim";
-      MANPAGER = "nvim +Man!";
-    };
-  };
-
-  services.getty.autologinUser = "codman";
-
-  programs.neovim.enable = true;
+  nixpkgs.hostPlatform = "x86_64-linux";
+  system.stateVersion = "25.05";
 
   imports = [
     inputs.ff.nixosModules.freedpomFlake

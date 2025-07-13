@@ -5,6 +5,7 @@
     system = {
       nix.enable = true;
       systemd-boot.enable = true;
+      fontsu.enable = true;
       persistence = {
         enable = true;
         ephHome = true;
@@ -29,6 +30,12 @@
         };
       };
     };
+  };
+
+  environment.variables = {
+    EDITOR = "nvim";
+    VISUAL = "nvim";
+    MANPAGER = "nvim +Man!";
   };
 
   nixpkgs.hostPlatform = "x86_64-linux";

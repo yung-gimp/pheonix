@@ -82,11 +82,11 @@
         "nvf": "nvf"
       },
       "locked": {
-        "lastModified": 1752354908,
-        "narHash": "sha256-rq6/Pl4MVDk2iqOrekJK2OtGpi5PbbBX2WJMCS5lLkA=",
+        "lastModified": 1752366112,
+        "narHash": "sha256-TBoVoRQexaYPSPISGi4Yw5Z0iWGsFbzeCQUlZKEKtOM=",
         "owner": "yung-gimp",
         "repo": "homeModule",
-        "rev": "5bc603337327d1cec8e89396e2491cb0ab8b5904",
+        "rev": "4c2974ca334af5a7248346ef2eae3b8647af8aa6",
         "type": "github"
       },
       "original": {
@@ -929,11 +929,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1752348734,
-        "narHash": "sha256-w3s5y+9Nn0oKUk6yS77YG1iRSizNStxqhEsgIlJKRtw=",
+        "lastModified": 1752361671,
+        "narHash": "sha256-AliH6gxw6l9OFZCUuXgxmH+UvTKPeyHzBu4lnvQ8Ick=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "ea24675e4f4f4c494ccb04f6645db2a394d348ee",
+        "rev": "f2795aa053ef11f958fba49aef15a5c4d9734c02",
         "type": "github"
       },
       "original": {

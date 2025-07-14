@@ -82,8 +82,8 @@
         "nvf": "nvf"
       },
       "locked": {
-        "lastModified": 1752451432,
-        "narHash": "sha256-lbf2k1baTMabWoixgIQvU5Ntm2HejBgQ54FBzd1gpFc=",
+        "lastModified": 1752526095,
+        "narHash": "sha256-LuSu72xDD+WmYcy7cOc2+SPUJw5SwGHqEK/gFrIXpDg=",
         "path": "/home/codman/Documents/nix/homeModule/",
         "type": "path"
       },
@@ -926,11 +926,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1752449767,
-        "narHash": "sha256-P8mQIrgIImASTlNkHPfKwGTmyZgku8EUt6cF52s3N/Y=",
+        "lastModified": 1752467539,
+        "narHash": "sha256-4kaR+xmng9YPASckfvIgl5flF/1nAZOplM+Wp9I5SMI=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "1a4d8ffd320c2393b72e7ebc5b647122d5703056",
+        "rev": "1e54837569e0b80797c47be4720fab19e0db1616",
         "type": "github"
       },
       "original": {

@@ -14,15 +14,16 @@
       enable = true;
       extraCompatPackages = with pkgs; [ proton-ge-bin ];
       protontricks.enable = true;
-      gamescopeSession = {
-        enable = true;
-        args = [
-          "-W 2560"
-          "-H 1440"
-          "-r 165"
-          "--hdr-enabled"
-        ];
-      };
+      # gamescopeSession = {
+      #   enable = true;
+      #   args = [
+      #     "-b"
+      #     "-W 2560"
+      #     "-H 1440"
+      #     "-r 165"
+      #     "--hdr-enabled"
+      #   ];
+      # };
       extraPackages = with pkgs; [
         gamemode
       ];

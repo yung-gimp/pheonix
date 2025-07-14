@@ -11,6 +11,7 @@
         disableAt = [
           "tty1"
         ];
+        autoLoginUser = "codman";
       };
       pipewire.enable = true;
     };

@@ -56,7 +56,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     cm = {
-      url = "github:yung-gimp/homeModule";
+      url = "/home/codman/Documents/nix/homeModule/";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

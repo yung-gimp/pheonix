@@ -2,23 +2,30 @@
 
 {
   ff = {
+    common.enable = true;
+
+    services = {
+      ananicy.enable = true;
+      kmscon = {
+        enable = true;
+        disableAt = [
+          "tty1"
+        ];
+      };
+      pipewire.enable = true;
+    };
+
     system = {
-      nix.enable = true;
-      systemd-boot.enable = true;
       fontsu.enable = true;
+      nix.enable = true;
+      performance.enable = true;
+      systemd-boot.enable = true;
       persistence = {
         enable = true;
         ephHome = true;
       };
+    };
 
-    };
-    services.kmscon = {
-      enable = true;
-      disableAt = [
-        "tty1"
-      ];
-    };
-    common.enable = true;
     userConfig = {
       users = {
         codman = {
@@ -32,18 +39,35 @@
     };
   };
 
+  home-manager.users.codman = {
+    cm = {
+      programs = {
+        firefox.enable = true;
+        git.enable = true;
+        media.enable = true;
+        nvf.enable = true;
+      };
+    };
+  };
+
+  systemd.tmpfiles.rules = [ "d /nix/persist/games 0750 codman users" ];
+
   environment.variables = {
     EDITOR = "nvim";
     VISUAL = "nvim";
     MANPAGER = "nvim +Man!";
   };
 
-  nixpkgs.hostPlatform = "x86_64-linux";
+  nixpkgs = {
+    hostPlatform = "x86_64-linux";
+    config.allowUnfree = true;
+  };
   system.stateVersion = "25.05";
 
   imports = [
     inputs.ff.nixosModules.freedpomFlake
     inputs.disko.nixosModules.disko
+    ./programs
     ./disko.nix
     ./hardware.nix
   ];

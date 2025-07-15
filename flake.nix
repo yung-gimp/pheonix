@@ -71,7 +71,7 @@
     };
 
     ff = {
-      url = "/home/codman/Documents/nix/FreedpomFlake";
+      url = "github:freedpom/FreedpomFlake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

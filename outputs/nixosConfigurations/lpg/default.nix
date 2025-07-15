@@ -27,7 +27,6 @@
       };
     };
 
-
     userConfig = {
       users = {
         codman = {
@@ -42,6 +41,8 @@
 
   services.scx.enable = lib.mkForce false;
   systemd.tmpfiles.rules = [ "d /nix/persist/games 0750 codman users" ];
+
+  home-manager.users.codman = import "../../homeConfigurations/codman@lpg";
 
   environment.variables = {
     EDITOR = "nvim";

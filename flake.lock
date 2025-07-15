@@ -238,14 +238,17 @@
         ]
       },
       "locked": {
-        "lastModified": 1752604768,
-        "narHash": "sha256-/8Jo+iaPUjEov0awDDj6HO1TOqpShkt7SUPUWxD2lJY=",
-        "path": "/home/codman/Documents/nix/FreedpomFlake",
-        "type": "path"
+        "lastModified": 1752615320,
+        "narHash": "sha256-LmJJd4UjRiI3mfLDFodLBhKJwvB1DMrX5jwukKB7Ja8=",
+        "owner": "freedpom",
+        "repo": "FreedpomFlake",
+        "rev": "f754806b5201e73cbb32caa6dcccdd968e8c6d4b",
+        "type": "github"
       },
       "original": {
-        "path": "/home/codman/Documents/nix/FreedpomFlake",
-        "type": "path"
+        "owner": "freedpom",
+        "repo": "FreedpomFlake",
+        "type": "github"
       }
     },
     "firefox-addons": {

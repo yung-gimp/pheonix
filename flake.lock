@@ -82,8 +82,8 @@
         "nvf": "nvf"
       },
       "locked": {
-        "lastModified": 1752545022,
-        "narHash": "sha256-J2pbq+wYTC4lMvqv7LeS/Ki4eyNs9PbLuJOaMS/+73Y=",
+        "lastModified": 1752606818,
+        "narHash": "sha256-7dCQpFLRB+epTVhWHhXW1l7L2mYQCzoG1BEPW/GAyhs=",
         "path": "/home/codman/Documents/nix/homeModule/",
         "type": "path"
       },

@@ -45,6 +45,8 @@
     fsType = "virtiofs";
     options = [ "nofail" ];
   };
+  
+  services.scx.enable = lib.mkForce false;
 
   imports = [
     inputs.ff.nixosModules.freedpomFlake

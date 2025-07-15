@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, lib, ... }:
 
 {
   ff = {
@@ -27,6 +27,7 @@
       };
     };
 
+
     userConfig = {
       users = {
         codman = {
@@ -39,6 +40,7 @@
     };
   };
 
+  services.scx.enable = lib.mkForce false;
   systemd.tmpfiles.rules = [ "d /nix/persist/games 0750 codman users" ];
 
   environment.variables = {

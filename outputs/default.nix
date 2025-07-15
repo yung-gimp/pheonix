@@ -51,7 +51,7 @@ in
 {
   flake = {
     nixosConfigurations = lib.genAttrs hosts mkHost;
-    # homeConfigurations = lib.genAttrs homeCfgs mkHomeCfg;
+    homeConfigurations = lib.genAttrs homeCfgs mkHomeCfg;
     # homeModules = lib.genAttrs homeMods mkHomeModule;
   };
 }

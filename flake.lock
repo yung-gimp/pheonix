@@ -82,8 +82,8 @@
         "nvf": "nvf"
       },
       "locked": {
-        "lastModified": 1752526095,
-        "narHash": "sha256-LuSu72xDD+WmYcy7cOc2+SPUJw5SwGHqEK/gFrIXpDg=",
+        "lastModified": 1752545022,
+        "narHash": "sha256-J2pbq+wYTC4lMvqv7LeS/Ki4eyNs9PbLuJOaMS/+73Y=",
         "path": "/home/codman/Documents/nix/homeModule/",
         "type": "path"
       },
@@ -238,17 +238,14 @@
         ]
       },
       "locked": {
-        "lastModified": 1752432474,
-        "narHash": "sha256-CSWnKkcuNTW+gC0Wdgs0NDO8blA77RNug+TX2Dgb+y8=",
-        "owner": "freedpom",
-        "repo": "FreedpomFlake",
-        "rev": "5ac692838bad544e929a798df7dfdf645e7be5a0",
-        "type": "github"
+        "lastModified": 1752604768,
+        "narHash": "sha256-/8Jo+iaPUjEov0awDDj6HO1TOqpShkt7SUPUWxD2lJY=",
+        "path": "/home/codman/Documents/nix/FreedpomFlake",
+        "type": "path"
       },
       "original": {
-        "owner": "freedpom",
-        "repo": "FreedpomFlake",
-        "type": "github"
+        "path": "/home/codman/Documents/nix/FreedpomFlake",
+        "type": "path"
       }
     },
     "firefox-addons": {
@@ -257,11 +254,11 @@
       },
       "locked": {
         "dir": "pkgs/firefox-addons",
-        "lastModified": 1752379414,
-        "narHash": "sha256-0R3slhrjrnzyxR/fAYy5UliZvSgaVS38YCESBdH5RJw=",
+        "lastModified": 1752552209,
+        "narHash": "sha256-qOU0Ntz0rczB8mtAXgrYywkeMGNOUZ7K1llhkXZ5IRE=",
         "owner": "rycee",
         "repo": "nur-expressions",
-        "rev": "51e77bb95540b7dd6c60f8fd65a0c472a2c9c3b7",
+        "rev": "a8e97c23cc97670e4ec9ab9fa43faf2585678de2",
         "type": "gitlab"
       },
       "original": {
@@ -926,11 +923,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1752467539,
-        "narHash": "sha256-4kaR+xmng9YPASckfvIgl5flF/1nAZOplM+Wp9I5SMI=",
+        "lastModified": 1752603129,
+        "narHash": "sha256-S+wmHhwNQ5Ru689L2Gu8n1OD6s9eU9n9mD827JNR+kw=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "1e54837569e0b80797c47be4720fab19e0db1616",
+        "rev": "e8c19a3cec2814c754f031ab3ae7316b64da085b",
         "type": "github"
       },
       "original": {
@@ -1145,11 +1142,11 @@
     },
     "nixpkgs_12": {
       "locked": {
-        "lastModified": 1751984180,
-        "narHash": "sha256-LwWRsENAZJKUdD3SpLluwDmdXY9F45ZEgCb0X+xgOL0=",
+        "lastModified": 1752480373,
+        "narHash": "sha256-JHQbm+OcGp32wAsXTE/FLYGNpb+4GLi5oTvCxwSoBOA=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "9807714d6944a957c2e036f84b0ff8caf9930bc0",
+        "rev": "62e0f05ede1da0d54515d4ea8ce9c733f12d9f08",
         "type": "github"
       },
       "original": {

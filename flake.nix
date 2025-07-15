@@ -35,8 +35,8 @@
       perSystem =
         {
           config,
-          pkgs,
           lib,
+          pkgs,
           ...
         }:
         {
@@ -71,7 +71,7 @@
     };
 
     ff = {
-      url = "github:freedpom/FreedpomFlake";
+      url = "/home/codman/Documents/nix/FreedpomFlake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

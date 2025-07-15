@@ -7,9 +7,7 @@
 let
 
   hosts = builtins.attrNames (
-    inputs.nixpkgs.lib.attrsets.filterAttrs (_n: t: t == "directory") (
-      builtins.readDir ./nixosConfigurations
-    )
+    lib.attrsets.filterAttrs (_n: t: t == "directory") (builtins.readDir ./nixosConfigurations)
   );
 
   mkHost =
@@ -36,36 +34,24 @@ let
     };
 
   homeCfgs = builtins.attrNames (
-    inputs.nixpkgs.lib.attrsets.filterAttrs (_n: t: t == "directory") (builtins.readDir ./homeConfigurations)
+    lib.attrsets.filterAttrs (_n: t: t == "directory") (builtins.readDir ./homeConfigurations)
   );
 
-  mkHomeCfg = homeCfg: {
-    specialArgs = {
-      inherit lib;
+  mkHomeCfg =
+    homeCfg:
+    inputs.home-manager.lib.homeManagerConfiguration {
+      pkgs = inputs.nixpkgs.legacyPackages."x86_64-linux";
+      extraSpecialArgs = { inherit inputs; };
+      modules = [
+        ./homeConfigurations/${homeCfg}
+      ];
     };
-    modules = [
-      ./homeConfigurations/${homeCfg}
-    ];
-  };
-
-  homeMods = builtins.attrNames (
-    inputs.nixpkgs.lib.attrsets.filterAttrs (_n: t: t == "directory") (builtins.readDir ./homeModules)
-  );
-
-  mkHomeModule = modName: {
-    specialArgs = {
-      inherit modName lib;
-    };
-    modules = [
-      ./homeModules/${modName}
-    ];
-  };
 
 in
 {
   flake = {
     nixosConfigurations = lib.genAttrs hosts mkHost;
-    homeConfigurations = lib.genAttrs homeCfgs mkHomeCfg;
+    # homeConfigurations = lib.genAttrs homeCfgs mkHomeCfg;
     # homeModules = lib.genAttrs homeMods mkHomeModule;
   };
 }

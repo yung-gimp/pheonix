@@ -11,7 +11,7 @@
         disableAt = [
           "tty1"
         ];
-        autoLoginUser = "codman";
+        autologinUser = "codman";
       };
       pipewire.enable = true;
     };
@@ -36,17 +36,6 @@
           hashedPassword = "$6$i8pqqPIplhh3zxt1$bUH178Go8y5y6HeWKIlyjMUklE2x/8Vy9d3KiCD1WN61EtHlrpWrGJxphqu7kB6AERg6sphGLonDeJvS/WC730";
           homeModule = inputs.cm.homeModules.codmod;
         };
-      };
-    };
-  };
-
-  home-manager.users.codman = {
-    cm = {
-      programs = {
-        firefox.enable = true;
-        git.enable = true;
-        media.enable = true;
-        nvf.enable = true;
       };
     };
   };

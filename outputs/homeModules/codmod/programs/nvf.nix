@@ -11,7 +11,7 @@ in
       vim = {
         vimAlias = true;
         enableLuaLoader = true;
-        
+
         options = {
           tabstop = 2;
           shiftwidth = 2;
@@ -24,26 +24,26 @@ in
           friendly-snippets.enable = true;
         };
 
-        # languages = {
-        #   enableTreesitter = true;
-        #   bash = {
-        #     enable = true;
-        #     lsp.enable = true;
-        #   };
-        #   css = {
-        #     enable = true;
-        #     lsp.enable = true;
-        #   };
-        #   nix = {
-        #     enable = true;
-        #     lsp.enable = true;
-        #     lsp.server = "nixd";
-        #   };
-        #   rust = {
-        #     enable = true;
-        #     lsp.enable = true;
-        #   };
-        # };
+        languages = {
+          enableTreesitter = true;
+          bash = {
+            enable = true;
+            lsp.enable = true;
+          };
+          css = {
+            enable = true;
+            lsp.enable = true;
+          };
+          nix = {
+            enable = true;
+            lsp.enable = true;
+            lsp.server = "nixd";
+          };
+          rust = {
+            enable = true;
+            lsp.enable = true;
+          };
+        };
 
         clipboard.providers.wl-copy.enable = true;
 

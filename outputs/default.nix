@@ -47,11 +47,21 @@ let
       ];
     };
 
+  homeMods = builtins.attrNames (
+    lib.attrsets.filterAttrs (_n: t: t == "directory") (builtins.readDir ./homeModules)
+  );
+
+  mkHomeMod = homeMod: {
+    imports = [
+      ./homeModules/${homeMod}
+    ];
+  };
+
 in
 {
   flake = {
     nixosConfigurations = lib.genAttrs hosts mkHost;
     homeConfigurations = lib.genAttrs homeCfgs mkHomeCfg;
-    # homeModules = lib.genAttrs homeMods mkHomeModule;
+    homeModules = lib.genAttrs homeMods mkHomeMod;
   };
 }

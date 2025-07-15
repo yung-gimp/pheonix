@@ -1,4 +1,9 @@
-{ inputs, lib, ... }:
+{
+  inputs,
+  lib,
+  self,
+  ...
+}:
 
 {
   ff = {
@@ -39,10 +44,22 @@
     };
   };
 
+  home-manager.users.codman = {
+    home.stateVersion = "24.11";
+    imports = [ self.homeModules.codmod ];
+
+    cm = {
+      programs = {
+        firefox.enable = true;
+        git.enable = true;
+        media.enable = true;
+        nvf.enable = true;
+      };
+    };
+  };
+
   services.scx.enable = lib.mkForce false;
   systemd.tmpfiles.rules = [ "d /nix/persist/games 0750 codman users" ];
-
-  home-manager.users.codman = import "../../homeConfigurations/codman@lpg";
 
   environment.variables = {
     EDITOR = "nvim";

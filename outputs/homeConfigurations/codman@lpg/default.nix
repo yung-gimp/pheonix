@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ self, ... }:
 
 {
   home = {
@@ -18,5 +18,5 @@
     };
   };
 
-  imports = [ inputs.cm.homeModules.codmod ];
+  imports = [ self.homeModules.codmod ];
 }

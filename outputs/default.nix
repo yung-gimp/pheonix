@@ -41,7 +41,7 @@ let
     homeCfg:
     inputs.home-manager.lib.homeManagerConfiguration {
       pkgs = inputs.nixpkgs.legacyPackages."x86_64-linux";
-      extraSpecialArgs = { inherit inputs; };
+      extraSpecialArgs = { inherit self inputs; };
       modules = [
         ./homeConfigurations/${homeCfg}
       ];

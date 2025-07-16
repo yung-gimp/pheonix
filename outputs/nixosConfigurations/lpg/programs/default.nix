@@ -1,3 +1,6 @@
 {
-  imports = [ ./steam.nix ];
+  imports = [
+    ./hyprland.nix
+    ./steam.nix
+  ];
 }

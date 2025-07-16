@@ -22,6 +22,11 @@ in
         };
       };
     };
+    programs.bash.profileExtra = ''
+      if uwsm check may-start; then
+        exec uwsm start hyprland-uwsm.desktop
+      fi
+    '';
   };
   imports = [
     ./appearance.nix

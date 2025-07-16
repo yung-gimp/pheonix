@@ -16,7 +16,6 @@
         disableAt = [
           "tty1"
         ];
-        autologinUser = "codman";
       };
       pipewire.enable = true;
     };
@@ -45,8 +44,10 @@
   };
 
   home-manager.users.codman = {
-    home.stateVersion = "24.11";
-    imports = [ self.homeModules.codmod ];
+    home.stateVersion = "25.05";
+    imports = [ self.homeModules.codmod inputs.ff.homeModules.freedpomFlake ];
+
+    ff.programs.bash.enable = true;
 
     cm = {
       hyprland.enable = true;

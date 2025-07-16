@@ -49,6 +49,7 @@
     imports = [ self.homeModules.codmod ];
 
     cm = {
+      hyprland.enable = true;
       programs = {
         firefox.enable = true;
         git.enable = true;

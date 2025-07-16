@@ -55,11 +55,6 @@
 
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-    cm = {
-      url = "/home/codman/Documents/nix/homeModule/";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     disko = {
       url = "github:nix-community/disko/latest";
       inputs.nixpkgs.follows = "nixpkgs";

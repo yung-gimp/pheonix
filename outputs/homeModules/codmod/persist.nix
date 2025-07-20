@@ -17,22 +17,10 @@
         "Pictures"
         "Videos"
         ".ssh"
-        {
-          directory = ".local/share/Steam";
-          method = "symlink";
-        }
+        ".local/share/Steam"
       ];
       files = [ ];
       allowOther = false;
-    };
-
-    "/nix/persist/" = {
-      directories = [
-        {
-          directory = "games";
-          method = "symlink";
-        }
-      ];
     };
   };
 }

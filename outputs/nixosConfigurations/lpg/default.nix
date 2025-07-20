@@ -132,6 +132,13 @@
     MANPAGER = "nvim +Man!";
   };
 
+  fileSystems."/home/codman/games" = {
+    depends = [ "/nix/persist/games" ];
+    device = "/nix/persist/games";
+    fsType = "none";
+    options = [ "bind" ];
+  };
+
   nixpkgs = {
     hostPlatform = "x86_64-linux";
     config.allowUnfree = true;

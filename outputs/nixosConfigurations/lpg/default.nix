@@ -45,7 +45,10 @@
 
   home-manager.users.codman = {
     home.stateVersion = "25.05";
-    imports = [ self.homeModules.codmod inputs.ff.homeModules.freedpomFlake ];
+    imports = [
+      self.homeModules.codmod
+      inputs.ff.homeModules.freedpomFlake
+    ];
 
     ff.programs.bash.enable = true;
 
@@ -57,6 +60,66 @@
         media.enable = true;
         nvf.enable = true;
       };
+    };
+  };
+
+  services.pipewire = {
+    wireplumber.extraConfig = {
+      "clarettPro" = {
+        "monitor.alsa.rules" = [
+          {
+            matches = [
+              { "device.name" = "alsa_card.usb-Focusrite_Clarett__4Pre_00009991-00"; }
+            ];
+            actions = {
+              update-props = {
+                "device.profile" = "pro-audio";
+              };
+            };
+          }
+        ];
+      };
+    };
+
+    extraConfig.pipewire."clarett" = {
+      "context.modules" = [
+        {
+          name = "libpipewire-module-loopback";
+          args = {
+            "node.description" = "Clarett stereo pair 1";
+            "capture.props" = {
+              "node.name" = "clarett_stereo_pair_1";
+              "media.class" = "Audio/Sink";
+              "audio.position" = "[ FL FR ]";
+            };
+            "playback.props" = {
+              "node.name" = "playback.clarett_stereo_pair_1";
+              "audio.position" = "[ AUX0 AUX1 ]";
+              "target.object" = "alsa_output.usb-Focusrite_Clarett__4Pre_00009991-00.pro-output-0";
+              "stream.dont-remix" = "true";
+              "node.passive" = "true";
+            };
+          };
+        }
+        {
+          name = "libpipewire-module-loopback";
+          args = {
+            "node.description" = "Clarett stereo pair 2";
+            "capture.props" = {
+              "node.name" = "clarett_stereo_pair_2";
+              "media.class" = "Audio/Sink";
+              "audio.position" = "[ FL FR ]";
+            };
+            "playback.props" = {
+              "node.name" = "playback.clarett_stereo_pair_2";
+              "audio.position" = "[ AUX2 AUX3 ]";
+              "target.object" = "alsa_output.usb-Focusrite_Clarett__4Pre_00009991-00.pro-output-0";
+              "stream.dont-remix" = "true";
+              "node.passive" = "true";
+            };
+          };
+        }
+      ];
     };
   };
 

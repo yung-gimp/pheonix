@@ -23,10 +23,12 @@ in
       };
     };
 
-    home.pointerCursor.hyprcursor = {
-      enable = true;
-      size = 24;
-    };
+    # home.pointerCursor = {
+    #   hyprcursor = {
+    #     enable = true;
+    #     size = 24;
+    #   };
+    # };
 
     programs.bash.profileExtra = ''
       if uwsm check may-start; then

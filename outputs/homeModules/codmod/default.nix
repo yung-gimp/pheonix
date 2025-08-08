@@ -1,16 +1,23 @@
-{ pkgs, inputs, ... }:
 {
+  pkgs,
+  inputs,
+  ...
+}: {
   home = {
-    packages = [
-      pkgs.htop
+    packages = with pkgs; [
+      htop
+      tidal-hifi
+      legcord
+      vlc
+      feh
+      xfce.thunar
+      neovide
     ];
   };
 
   imports = [
-    inputs.impermanence.homeManagerModules.impermanence
     inputs.nvf.homeManagerModules.default
     ./hyprland
-    ./persist.nix
     ./programs
   ];
 }
